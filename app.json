@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "CivicKarma",
+    "slug": "civickarma",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "civickarma",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1a7f37"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.civickarma.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "CivicKarma needs camera access to photograph civic issues.",
+        "NSLocationWhenInUseUsageDescription": "CivicKarma needs your location to tag reported issues accurately.",
+        "NSPhotoLibraryUsageDescription": "CivicKarma needs photo library access to attach images to reports."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1a7f37"
+      },
+      "package": "com.civickarma.app",
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-location",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "CivicKarma needs photo library access to attach images to reports.",
+          "cameraPermission": "CivicKarma needs camera access to photograph civic issues."
+        }
+      ],
+      "expo-splash-screen"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
