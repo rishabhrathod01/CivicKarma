@@ -29,14 +29,14 @@ The platform supports **English and Kannada** (ಕನ್ನಡ), ensuring access
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| **Frontend** | React Native (Expo SDK 54), TypeScript, Expo Router, NativeWind (TailwindCSS) |
-| **State Management** | Zustand (client state) + TanStack React Query (server state) |
-| **Backend** | Supabase — Postgres, Auth (phone OTP), Storage, Row Level Security |
-| **Internationalization** | react-i18next (English + Kannada) |
-| **Forms & Validation** | React Hook Form + Zod |
-| **Admin Dashboard** | React + Vite + TypeScript |
+| Layer                    | Technology                                                                    |
+| ------------------------ | ----------------------------------------------------------------------------- |
+| **Frontend**             | React Native (Expo SDK 54), TypeScript, Expo Router, NativeWind (TailwindCSS) |
+| **State Management**     | Zustand (client state) + TanStack React Query (server state)                  |
+| **Backend**              | Supabase — Postgres, Auth (phone OTP), Storage, Row Level Security            |
+| **Internationalization** | react-i18next (English + Kannada)                                             |
+| **Forms & Validation**   | React Hook Form + Zod                                                         |
+| **Admin Dashboard**      | React + Vite + TypeScript                                                     |
 
 ---
 
@@ -117,8 +117,8 @@ CivicKarma/
 ### Prerequisites
 
 - **Node.js** 18+ (LTS recommended)
-- **npm** or **yarn**
-- **Expo CLI** — `npm install -g expo-cli`
+- **pnpm** 9+ — `npm install -g pnpm`
+- **Expo CLI** — installed via `pnpm install`
 - **Supabase account** — [supabase.com](https://supabase.com)
 - iOS Simulator (macOS) or Android Emulator, or Expo Go on a physical device
 
@@ -132,7 +132,7 @@ cd CivicKarma
 ### 2. Install Dependencies
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### 3. Supabase Setup
@@ -155,7 +155,7 @@ EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
 ### 5. Start Development Server
 
 ```bash
-npx expo start
+pnpm start
 ```
 
 Scan the QR code with Expo Go (Android) or the Camera app (iOS) to run on your device.
@@ -217,8 +217,8 @@ The admin dashboard is a standalone React + Vite application for managing compla
 
 ```bash
 cd admin
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 The dashboard runs at `http://localhost:5173` by default. It is currently a stub with placeholder data — connect it to your Supabase instance to see live data.
@@ -227,14 +227,14 @@ The dashboard runs at `http://localhost:5173` by default. It is currently a stub
 
 ## Environment Variables
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `EXPO_PUBLIC_SUPABASE_URL` | Your Supabase project URL | `https://abc123.supabase.co` |
-| `EXPO_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous (public) API key | `eyJhbGciOiJIUzI1NiIs...` |
-| `EXPO_PUBLIC_DEFAULT_LANG` | Default UI language (`en` or `kn`) | `en` |
-| `EXPO_PUBLIC_MAX_REPORTS_PER_DAY` | Maximum reports a user can file per day | `5` |
-| `EXPO_PUBLIC_DUPLICATE_RADIUS_METERS` | Radius (m) for duplicate complaint detection | `50` |
-| `EXPO_PUBLIC_DUPLICATE_HOURS` | Time window (hours) for duplicate detection | `2` |
+| Variable                              | Description                                  | Example                      |
+| ------------------------------------- | -------------------------------------------- | ---------------------------- |
+| `EXPO_PUBLIC_SUPABASE_URL`            | Your Supabase project URL                    | `https://abc123.supabase.co` |
+| `EXPO_PUBLIC_SUPABASE_ANON_KEY`       | Supabase anonymous (public) API key          | `eyJhbGciOiJIUzI1NiIs...`    |
+| `EXPO_PUBLIC_DEFAULT_LANG`            | Default UI language (`en` or `kn`)           | `en`                         |
+| `EXPO_PUBLIC_MAX_REPORTS_PER_DAY`     | Maximum reports a user can file per day      | `5`                          |
+| `EXPO_PUBLIC_DUPLICATE_RADIUS_METERS` | Radius (m) for duplicate complaint detection | `50`                         |
+| `EXPO_PUBLIC_DUPLICATE_HOURS`         | Time window (hours) for duplicate detection  | `2`                          |
 
 ---
 
@@ -263,13 +263,13 @@ Points are awarded server-side via a PostgreSQL `SECURITY DEFINER` function (`aw
 
 CivicKarma uses a points-based system to incentivize accurate reporting and civic responsibility:
 
-| Action | Points | Description |
-|--------|--------|-------------|
-| **Valid Report** | +10 | Submitting a verified civic report |
-| **Self Cleaned** | +30 | Cleaning up the reported issue yourself |
-| **Parking Violation** | +15 | Reporting a parking violation |
-| **Government Resolved** | +5 | Your report was resolved by the government |
-| **False Report** | -20 | Penalty for submitting a false or duplicate report |
+| Action                  | Points | Description                                        |
+| ----------------------- | ------ | -------------------------------------------------- |
+| **Valid Report**        | +10    | Submitting a verified civic report                 |
+| **Self Cleaned**        | +30    | Cleaning up the reported issue yourself            |
+| **Parking Violation**   | +15    | Reporting a parking violation                      |
+| **Government Resolved** | +5     | Your report was resolved by the government         |
+| **False Report**        | -20    | Penalty for submitting a false or duplicate report |
 
 Points contribute to a **public leaderboard** ranked across the city. The system is designed to reward genuine civic engagement while discouraging misuse.
 

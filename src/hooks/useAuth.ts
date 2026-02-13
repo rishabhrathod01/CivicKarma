@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { authService } from '../services/auth';
-import { useAuthStore } from '../stores/authStore';
+import { useAuthStore } from '@/stores/auth.store';
 
 /**
  * Hook that wraps the auth Zustand store and auth service.

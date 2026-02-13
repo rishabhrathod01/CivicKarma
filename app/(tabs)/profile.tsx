@@ -6,7 +6,7 @@ import { Alert, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useAuth } from '../../src/hooks/useAuth';
-import { useAuthStore } from '../../src/stores/auth.store';
+import { useAuthStore } from '@/stores/auth.store';
 import { useSettingsStore } from '../../src/stores/settings.store';
 
 // ─── Stat Card ──────────────────────────────────────────────────────────────

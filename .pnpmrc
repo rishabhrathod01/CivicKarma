@@ -1,0 +1,13 @@
+# pnpm configuration file
+
+# Use strict peer dependency resolution
+strict-peer-dependencies=true
+
+# Save exact versions in package.json
+save-exact=false
+
+# Shamefully hoist packages for better compatibility with monorepos and some library requirements
+shamefully-hoist=true
+
+# Auto-install peer dependencies
+auto-install-peers=true

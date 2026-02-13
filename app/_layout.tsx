@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { useAuthStore } from '../src/stores/auth.store';
+import { useAuthStore } from '@/stores/auth.store';
 
 // Prevent the splash screen from auto-hiding before auth is checked
 SplashScreen.preventAutoHideAsync();

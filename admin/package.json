@@ -2,6 +2,7 @@
   "name": "civickarma-admin",
   "private": true,
   "version": "1.0.0",
+  "packageManager": "pnpm@9",
   "type": "module",
   "scripts": {
     "dev": "vite",

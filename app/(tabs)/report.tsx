@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { useAuthStore } from '../../src/stores/auth.store';
+import { useAuthStore } from '@/stores/auth.store';
 import { DEFAULT_CATEGORIES } from '../../src/constants/categories';
 import { APP_CONFIG } from '../../src/constants/config';
 import { useReportStore } from '../../src/stores/report.store';
