@@ -1,40 +1,37 @@
-import type { Session } from '@supabase/supabase-js';
 import { create } from 'zustand';
 
-import { authService } from '../services/auth';
-import type { Tables } from '../types/database';
-
-type Profile = Tables<'profiles'>;
+import {
+  mockAuthService,
+  type MockSession,
+  type Profile,
+} from '../services/mockData';
 
 interface AuthState {
-  session: Session | null;
+  session: MockSession | null;
   user: Profile | null;
   isLoading: boolean;
   isAuthenticated: boolean;
 }
 
 interface AuthActions {
-  setSession: (session: Session | null) => void;
+  setSession: (session: MockSession | null) => void;
   setUser: (user: Profile | null) => void;
   setLoading: (loading: boolean) => void;
-  /** Check for an existing session and hydrate state. */
+  /** Check for an existing session and hydrate state (mock: optional auto-login). */
   initialize: () => Promise<void>;
   /** Sign out and clear all auth state. */
   logout: () => Promise<void>;
-  /** Re-fetch the user profile from the database. */
+  /** Re-fetch the user profile. */
   refreshUser: () => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState & AuthActions>()((set, get) => ({
-  // ── State ──────────────────────────────────────────────────────────────────
   session: null,
   user: null,
   isLoading: true,
   isAuthenticated: false,
 
-  // ── Actions ────────────────────────────────────────────────────────────────
-  setSession: (session) =>
-    set({ session, isAuthenticated: session !== null }),
+  setSession: (session) => set({ session, isAuthenticated: session !== null }),
 
   setUser: (user) => set({ user }),
 
@@ -43,14 +40,13 @@ export const useAuthStore = create<AuthState & AuthActions>()((set, get) => ({
   initialize: async () => {
     try {
       set({ isLoading: true });
-
-      const session = await authService.getSession();
+      const session = await mockAuthService.getSession();
       if (session?.user) {
-        const profile = await authService.getUser(session.user.id);
+        const profile = await mockAuthService.getUser(session.user.id);
         set({
           session,
-          user: profile,
-          isAuthenticated: true,
+          user: profile ?? null,
+          isAuthenticated: !!profile,
           isLoading: false,
         });
       } else {
@@ -73,7 +69,7 @@ export const useAuthStore = create<AuthState & AuthActions>()((set, get) => ({
 
   logout: async () => {
     try {
-      await authService.signOut();
+      await mockAuthService.signOut();
     } finally {
       set({
         session: null,
@@ -86,8 +82,7 @@ export const useAuthStore = create<AuthState & AuthActions>()((set, get) => ({
   refreshUser: async () => {
     const { session } = get();
     if (!session?.user) return;
-
-    const profile = await authService.getUser(session.user.id);
+    const profile = await mockAuthService.getUser(session.user.id);
     set({ user: profile });
   },
 }));
