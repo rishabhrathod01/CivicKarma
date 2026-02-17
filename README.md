@@ -1,4 +1,4 @@
-# CivicKarma
+# Zero Civic Sense
 
 **Gamified civic reporting platform for Bangalore — report issues, earn points, build accountability.**
 
@@ -10,9 +10,9 @@
 
 ## Overview
 
-CivicKarma is a mobile-first civic engagement platform designed for Bangalore residents. It empowers citizens to report infrastructure issues — potholes, garbage dumps, illegal parking, broken street lights — directly from their phones with photo evidence and GPS coordinates.
+Zero Civic Sense is a mobile-first civic engagement platform designed for Bangalore residents. It empowers citizens to report infrastructure issues — potholes, garbage dumps, illegal parking, broken street lights — directly from their phones with photo evidence and GPS coordinates.
 
-What makes CivicKarma different is its **gamification layer**. Every valid report earns points, climbing you up a public leaderboard. Self-cleaning an issue you reported earns bonus points. False reports cost you. This creates a self-regulating ecosystem where accountability runs both ways — citizens stay honest, and government responsiveness becomes publicly measurable.
+What makes Zero Civic Sense different is its **gamification layer**. Every valid report earns points, climbing you up a public leaderboard. Self-cleaning an issue you reported earns bonus points. False reports cost you. This creates a self-regulating ecosystem where accountability runs both ways — citizens stay honest, and government responsiveness becomes publicly measurable.
 
 The platform supports **English and Kannada** (ಕನ್ನಡ), ensuring accessibility for all Bangalore residents. Complaints are categorized by department (BBMP, Traffic, Road & Infrastructure) and tracked through a transparent status pipeline from submission to resolution.
 
